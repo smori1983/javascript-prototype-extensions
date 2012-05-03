@@ -1,4 +1,4 @@
-start();
+start(); // without this, phantomjs-1.5.0 may be timed out.
 module("String");
 
 test("base64Decode", function() {
