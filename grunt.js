@@ -55,7 +55,7 @@ grunt.initConfig({
             "src/*.js",
             "test/*.js"
         ],
-        tasks: "qunit"
+        tasks: "lint qunit"
     }
 });
 
