@@ -60,6 +60,6 @@ grunt.initConfig({
 });
 
 grunt.registerTask("default", "lint qunit concat min");
-grunt.registerTask("test", "qunit");
+grunt.registerTask("test", "lint qunit");
 
 };
