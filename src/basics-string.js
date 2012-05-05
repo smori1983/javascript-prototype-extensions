@@ -32,7 +32,7 @@ String.method("escapeHTML", function() {
 
 String.method("format", function() {
     var s = function(arg, format) {
-        var len;
+        var ret, len;
 
         if (typeof arg === "string" || typeof arg === "number" || typeof arg === "boolean") {
             if (format.length > 2) {
@@ -41,10 +41,12 @@ String.method("format", function() {
                     arg = " ".repeat(len - arg.length) + arg;
                 }
             }
-            return arg;
+            ret = arg;
         } else {
-            return "";
-        }        
+            ret = "";
+        }
+
+        return ret;
     };
 
     var d = function(arg, format) {
