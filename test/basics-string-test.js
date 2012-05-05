@@ -42,6 +42,10 @@ test("padRight", function() {
     strictEqual("a".padRight(4, "+-"), "a+-+");
 });
 
+test("regexQuote", function() {
+    strictEqual("^$.?*+-\\/:=!,()[]{}".regexQuote(), "\\^\\$\\.\\?\\*\\+\\-\\\\\\/\\:\\=\\!\\,\\(\\)\\[\\]\\{\\}");
+});
+
 test("repeat", function() {
     strictEqual("a".repeat(3), "aaa");
     strictEqual("abc".repeat(2), "abcabc");

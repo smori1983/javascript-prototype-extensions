@@ -129,6 +129,12 @@ String.method("padRight", function(len, word) {
     return ret;
 });
 
+String.method("regexQuote", function() {
+    return this.replace(/[\^\$\.\?\*\+\-\\\/\:\=\!\,\(\)\[\]\{\}]/g, function(matched) {
+        return "\\" + matched;
+    });
+});
+
 String.method("repeat", function(count) {
     var i, ret = "";
 
