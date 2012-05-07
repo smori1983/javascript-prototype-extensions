@@ -166,6 +166,22 @@ String.method("trimRight", function() {
     return this.replace(/\s+$/, "");
 });
 
+String.method("unescapeHTML", function() {
+    var list = {
+        "&lt;":   "<",
+        "&gt;":   ">",
+        "&amp;":  "&",
+        "&quot;": '"',
+        "&#039;": "'"
+    };
+
+    return function() {
+        return this.replace(/&lt;|&gt;|&amp;|&quot;|&#039;/g, function(matched) {
+            return list[matched];
+        });
+    };
+}());
+
 String.method("upperFirst", function() {
     return this.slice(0, 1).toLocaleUpperCase() + this.slice(1);
 });

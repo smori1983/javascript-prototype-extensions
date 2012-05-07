@@ -6,7 +6,7 @@ test("escapeBase64", function() {
 });
 
 test("escapeHTML", function() {
-    strictEqual('< > & " \''.escapeHTML(), "&lt; &gt; &amp; &quot; &#039;");
+    strictEqual("< > & \" '".escapeHTML(), "&lt; &gt; &amp; &quot; &#039;");
 });
 
 test("format", function() {
@@ -66,6 +66,10 @@ test("trimLeft", function() {
 
 test("trimRight", function() {
     strictEqual(" a ".trimRight(), " a");
+});
+
+test("unescapeHTML", function() {
+    strictEqual("&lt; &gt; &amp; &quot; &#039;".unescapeHTML(), "< > & \" '");
 });
 
 test("upperFirst", function() {
