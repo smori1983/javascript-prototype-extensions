@@ -19,6 +19,27 @@ test("format", function() {
     strictEqual("%02d %02d".format(1, 100), "01 100", '"%02d %02d".format(1, 100) === "01 100"');
 });
 
+test("isNumeric", function() {
+    strictEqual("0.1".isNumeric(),      true, '"123".isNumeric() === true');
+    strictEqual("+0.1".isNumeric(),     true, '"123".isNumeric() === true');
+    strictEqual("-0.1".isNumeric(),     true, '"123".isNumeric() === true');
+    strictEqual("123".isNumeric(),      true, '"123".isNumeric() === true');
+    strictEqual("+123".isNumeric(),     true, '"+123".isNumeric() === true');
+    strictEqual("-123".isNumeric(),     true, '"-123".isNumeric() === true');
+    strictEqual("123kg".isNumeric(),    true, '"123kg".isNumeric() === true');
+    strictEqual("+123kg".isNumeric(),   true, '"123kg".isNumeric() === true');
+    strictEqual("-123kg".isNumeric(),   true, '"123kg".isNumeric() === true');
+    strictEqual("123.4".isNumeric(),    true, '"123.4".isNumeric() === true');
+    strictEqual("+123.4".isNumeric(),   true, '"+123.4".isNumeric() === true');
+    strictEqual("-123.4".isNumeric(),   true, '"-123.4".isNumeric() === true');
+    strictEqual("123.4kg".isNumeric(),  true, '"123.4kg".isNumeric() === true');
+    strictEqual("+123.4kg".isNumeric(), true, '"+123.4kg".isNumeric() === true');
+    strictEqual("-123.4kg".isNumeric(), true, '"-123.4kg".isNumeric() === true');
+
+    notStrictEqual("p14".isNumeric(),   true, '"123".isNumeric() === true');
+    notStrictEqual(".5".isNumeric(),    true, '"123".isNumeric() === true');
+});
+
 test("lowerFirst", function() {
     strictEqual("".lowerFirst(), "", '"".lowerFirst() === ""');
     strictEqual("ABC".lowerFirst(), "aBC");

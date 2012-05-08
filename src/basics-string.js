@@ -92,6 +92,10 @@ String.method("format", function() {
     };
 }());
 
+String.method("isNumeric", function() {
+    return this.match(/^[\+\-]?\d+(?:\.\d+)?/) !== null;
+});
+
 String.method("lowerFirst", function() {
     return this.slice(0, 1).toLocaleLowerCase() + this.slice(1);
 });
