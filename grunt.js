@@ -28,6 +28,7 @@ grunt.initConfig({
                 "<banner:meta.banner>",
                 "src/basics-function.js",
                 "src/basics-string.js",
+                "src/basics-date.js",
                 "src/phpjs-string.js"
             ],
             dest: "dist/prototype-extensions.js"
