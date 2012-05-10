@@ -30,4 +30,5 @@ test("format", function() {
     var date = new Date(2012, 4, 6, 1, 2, 3, 0);
 
     strictEqual(date.format("%Y-%m-%d %H:%i:%s"), "2012-05-06 01:02:03");
+    strictEqual(date.format("%y-%m-%d %H:%i:%s"), "12-05-06 01:02:03");
 });
