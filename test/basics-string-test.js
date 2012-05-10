@@ -1,6 +1,17 @@
 start(); // without this, phantomjs-1.5.0 may be timed out.
 module("String");
 
+test("compare", function() {
+    ok("a".compare("a") === 0);
+    ok("a".compare("b") < 0);
+    ok("b".compare("a") > 0);
+
+    ok("a".compare(null) === 0);
+    ok("a".compare(true) === 0);
+    ok("a".compare([]) === 0);
+    ok("a".compare({}) === 0);
+});
+
 test("escapeBase64", function() {
     strictEqual("a+9/ZQ==".escapeBase64(), "a%289%2FZQ%3D%3D");
 });

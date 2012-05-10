@@ -1,5 +1,23 @@
 /* basics-string.js */
 
+String.method("compare", function(value) {
+    var self = this.toString();
+
+    if (typeof value === "number") {
+        value = value.toString();
+    }
+
+    if (typeof value === "string") {
+        if (self === value) {
+            return 0;
+        } else {
+            return self < value ? -1 : 1;
+        }
+    } else {
+        return 0;
+    }
+});
+
 String.method("escapeBase64", function() {
     var list = {
         "+": "%28",
