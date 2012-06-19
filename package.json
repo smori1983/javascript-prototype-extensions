@@ -2,7 +2,7 @@
     "name": "prototype-extensions.js",
     "title": "javascript prototype extensions",
     "description": "Extends JavaScript standard global objects.",
-    "version": "0.1",
+    "version": "0.2",
     "author": {
         "name": "smori",
         "email": "smori1983@gmail.com"
