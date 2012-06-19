@@ -14,7 +14,8 @@ grunt.initConfig({
                 " * http://phpjs.org/\n" +
                 " * Copyright (c) 2011 Kevin van Zonneveld\n" +
                 " * Dual licensed under the MIT or GPL-2.0 licenses.\n" +
-                " */"
+                " */",
+        name: "<%= grunt.utils._.rtrim(pkg.name, '.js') %>"
     },
     lint: {
         all: ["grunt.js", "src/*.js", "test/*.js"]
@@ -31,16 +32,16 @@ grunt.initConfig({
                 "src/basics-date.js",
                 "src/phpjs-string.js"
             ],
-            dest: "dist/prototype-extensions.js"
+            dest: "dist/<%= meta.name %>-<%= pkg.version %>.js"
         }
     },
     min: {
         dist: {
             src: [
                 "<banner:meta.banner>",
-                "dist/prototype-extensions.js"
+                "<config:concat.dist.dest>"
             ],
-            dest: "dist/prototype-extensions.min.js"
+            dest: "dist/<%= meta.name %>-<%= pkg.version %>.min.js"
         }
     },
     jshint: {
@@ -60,7 +61,23 @@ grunt.initConfig({
     }
 });
 
-grunt.registerTask("default", "lint qunit concat min");
+grunt.registerTask("preconcat", "preContat", function() {
+    var fs    = require("fs"),
+        path  = require("path"),
+        dir   = path.resolve("dist"),
+        count = 0;
+
+    fs.readdirSync(dir).forEach(function(file) {
+        if (/\.js$/.test(file)) {
+            fs.unlinkSync(path.resolve(dir, file));
+            count++;
+        }
+    });
+
+    grunt.log.writeln("Removed file count: " + count);
+});
+
+grunt.registerTask("default", "lint qunit preconcat concat min");
 grunt.registerTask("test", "lint qunit");
 
-};
+}; //grunt.initConfig
