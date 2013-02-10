@@ -29,6 +29,7 @@ Date.method("format", function(format) {
     ret = ret.replace(/([^%]?)%H/g, "$1" + ("0" + this.getHours()).slice(-2));
     ret = ret.replace(/([^%]?)%i/g, "$1" + ("0" + this.getMinutes()).slice(-2));
     ret = ret.replace(/([^%]?)%s/g, "$1" + ("0" + this.getSeconds()).slice(-2));
+    ret = ret.replace(/([^%]?)%w/g, "$1" + this.getDay());
 
     return ret;
 });

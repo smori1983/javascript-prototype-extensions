@@ -35,6 +35,13 @@ test("format - %s", function() {
     strictEqual(new Date(2013, 10, 1, 12, 11, 22).format("%s"), "22");
 });
 
+test("format - %w", function() {
+    // Sunday
+    strictEqual(new Date(2013, 1, 10).format("%w"), "0");
+    // Saturday
+    strictEqual(new Date(2013, 1, 9).format("%w"), "6");
+});
+
 test("add", function() {
     var date, added;
 
